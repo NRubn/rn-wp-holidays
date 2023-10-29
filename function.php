@@ -2,7 +2,7 @@
 /*
 Plugin Name: rn-wp-holidays
 Description: Ein WordPress-Plugin für die Auswahl von Feiertagen.
-Version: 0.1.1
+Version: 0.1.2
 Author: Ruben Norgall
 */
 
@@ -12,6 +12,7 @@ V1. - ADD ChRISTMANS (Snow)
 V2. - ADD EASTER (Eggs)
 v3. - ADD HALLOWEEN (Bats)
 V4. - ADD NEXT
+V5. - Time Options
 
 */
 
