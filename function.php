@@ -88,4 +88,12 @@ function loadclass($name){
     $holiday_class->loadStyle();
 }
 
+function load_custom_script() {
+    $selected_holiday = get_option('rnhd_selected_holiday','none');
+    if($selected_holiday === 'christmas') {
+    wp_enqueue_script( 'custom-script', plugin_dir_url( __FILE__ ) . 'holidays/assets/snowflakes.js', array('jquery'), '1.0', true );
+    wp_enqueue_style( 'custom-style', plugin_dir_url( __FILE__ ) . 'holidays/assets/snowflakes.css', array(), '1.0', 'all' );    
+}
+}
 
+add_action( 'wp_enqueue_scripts', 'load_custom_script' );

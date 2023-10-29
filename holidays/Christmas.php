@@ -8,7 +8,7 @@ class Christmas extends Holiday {
 
     public function loadScript() {
         if ($this->active) {
-            echo '<script src="'..'"></script>';
+            $script = '<script src="'.plugin_dir_url(__FILE__).'"/holidays/assets/snowflakes.js"></script>';
         }
     }
 

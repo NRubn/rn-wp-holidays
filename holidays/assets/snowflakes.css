@@ -1,0 +1,15 @@
+.snowflakescreen{
+    position: fixed;
+    left: 0;
+    right:0;
+    top:0;
+    bottom: 0;
+    background-color: black;
+}
+
+.snowflake {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 1px 1px 6px #d9d9d9;
+}
