@@ -2,7 +2,7 @@
 /*
 Plugin Name: rn-wp-holidays
 Description: Ein WordPress-Plugin für die Auswahl von Feiertagen.
-Version: 0.1.0
+Version: 0.1.1
 Author: Ruben Norgall
 */
 
@@ -52,6 +52,9 @@ function rnhd_render_page() {
         echo 'Halloween wurde ausgewählt.';
     } elseif ($selected_holiday === 'christmas') {
         echo 'Weihnachten wurde ausgewählt.';
+
+        loadclass('Christmas');
+
     } else {
         echo 'Ungültige Auswahl';
     }
@@ -73,6 +76,16 @@ function rnhd_render_page() {
         </form>
     </div>
     <?php
+}
+
+function loadclass($name){
+    $lowername = strtolower($name);
+    $path_to_file = plugin_dir_path(__FILE__) . 'holidays/'.$name.'.php';
+    
+    require_once($path_to_file);
+    $holiday_class = new $name(true);
+    $holiday_class->loadScript();
+    $holiday_class->loadStyle();
 }
 
 

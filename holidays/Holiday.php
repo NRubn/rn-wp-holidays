@@ -8,8 +8,8 @@ class Holiday {
     public function __construct($name, $active) {
         $this->name = $name;
         $this->active = $active;
-        $this->rnhd_script = plugin_dir_path(__FILE__).'/assets/script.js';
-        $this->rnhd_style = plugin_dir_path(__FILE__).'/assets/style.css';
+        $this->rnhd_script = (__DIR__).'/assets/script.js';
+        $this->rnhd_style = (__DIR__).'/assets/style.css';
         $this->createFilesIfNotExist([$this->rnhd_script, $this->rnhd_style]);
     }
 
@@ -39,7 +39,7 @@ class Holiday {
 
     protected function createFilesIfNotExist($files) {
         foreach ($files as $file) {
-            $file_path = __DIR__ . $file;
+            $file_path = $file;
             if (!file_exists($file_path)) {
                 fopen($file_path, 'w');
             }
