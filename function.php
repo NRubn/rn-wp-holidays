@@ -6,6 +6,15 @@ Version: 0.1.0
 Author: Ruben Norgall
 */
 
+#TO DOS:
+/*
+V1. - ADD ChRISTMANS (Snow)
+V2. - ADD EASTER (Eggs)
+v3. - ADD HALLOWEEN (Bats)
+V4. - ADD NEXT
+
+*/
+
 defined('ABSPATH') or die('Kein direkter Zugriff erlaubt!');
 
 // Funktionen und Variablen mit dem Präfix "rnhd"
@@ -24,6 +33,30 @@ function rnhd_add_menu() {
 }
 
 function rnhd_render_page() {
+
+    if(isset($_POST['rnhd_selected_holiday'])){
+        update_option('rnhd_selected_holiday',$_POST['rnhd_selected_holiday']);
+        $selected_holiday = $_POST['rnhd_selected_holiday'];
+    }else{
+        $selected_holiday = get_option('rnhd_selected_holiday','none');
+    }
+    
+ 
+    echo '<br>';
+    // Abfrage der ausgewählten Feiertage
+    if ($selected_holiday === 'none') {
+        echo 'Es wurde kein Feiertag ausgewählt.';
+    } elseif ($selected_holiday === 'easter') {
+        echo 'Ostern wurde ausgewählt.';
+    } elseif ($selected_holiday === 'halloween') {
+        echo 'Halloween wurde ausgewählt.';
+    } elseif ($selected_holiday === 'christmas') {
+        echo 'Weihnachten wurde ausgewählt.';
+    } else {
+        echo 'Ungültige Auswahl';
+    }
+  
+
     ?>
     <div class="wrap">
         <h2>Feiertage auswählen</h2>
@@ -42,9 +75,4 @@ function rnhd_render_page() {
     <?php
 }
 
-add_action('admin_init', 'rnhd_init');
-
-function rnhd_init() {
-    register_setting('rnhd_options', 'rnhd_selected_holiday');
-}
 
